@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <conversionRule
+    conversionWord="clr"
+    class="org.springframework.boot.logging.logback.ColorConverter"
+  />
+  <conversionRule
+    conversionWord="wex"
+    class="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"
+  />
+  <conversionRule
+    conversionWord="wEx"
+    class="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"
+  />
+
+  <springProperty scope="context"
+    name="APP_NAME"
+    source="spring.application.name"
+    defaultValue="unknown"/>
+
+  <property name="LOGGER_LEVEL_COL" value="%highlight(%-5level)"/>
+
+  <property name="CALL_SITE_COL" value="%clr(%-36.36logger{36}){cyan}"/>
+
+  <property name="THREAD_COL" value="%clr([%-15.15thread]){yellow}"/>
+
+  <property name="TRACE_ID_COL" value="[%-32.32X{trace_id:-}]"/>
+
+  <property
+    name="PATTERN"
+    value="%d{yyyy-MM-dd HH:mm:ss.SSS}  ${LOGGER_LEVEL_COL} --- [${APP_NAME}] ${TRACE_ID_COL} ${THREAD_COL} ${CALL_SITE_COL} : %msg%n%ex"
+  />
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>
