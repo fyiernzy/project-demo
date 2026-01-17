@@ -13,9 +13,9 @@ import org.mapstruct.MappingTarget;
 @Mapper(config = GlobalMapperConfig.class)
 public interface AppConfigMapper {
 
-    @Mapping(target = "application", source = "appConfigId.application")
-    @Mapping(target = "name", source = "appConfigId.name")
-    @Mapping(target = "environment", source = "appConfigId.deploymentStage")
+    @Mapping(target = "application", source = "getId.application")
+    @Mapping(target = "name", source = "getId.name")
+    @Mapping(target = "environment", source = "getId.deploymentStage")
     AppConfigModel toModel(AppConfig appConfig);
 
     @Mapping(target = "version", ignore = true)

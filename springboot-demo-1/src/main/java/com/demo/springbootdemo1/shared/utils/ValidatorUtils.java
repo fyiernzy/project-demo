@@ -17,6 +17,10 @@ public class ValidatorUtils {
         return condition;
     }
 
+    public static boolean isTrue(Boolean condition) {
+        return condition;
+    }
+
     public static boolean isFalse(boolean condition) {
         return !condition;
     }

@@ -17,7 +17,7 @@ public class AppConfig extends Auditable {
     @EmbeddedId
     @EqualsAndHashCode.Include
     @Column(name = "id", nullable = false, updatable = false)
-    private AppConfigId appConfigId;
+    private AppConfigId id;
 
     @Column(name = "value", nullable = false)
     private String value;
